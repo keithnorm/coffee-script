@@ -1765,6 +1765,7 @@ UTILITIES =
       ctor.prototype = parent.prototype;
       child.prototype = new ctor;
       child.__super__ = parent.prototype;
+      if(typeof parent.extended == "function") parent.extended.call(parent, child);
       return child;
     }
   '''
